@@ -1,0 +1,13 @@
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v4
+      - run:
+        apt-get update
+        apt-get install -y hugo
+        hugo
+     - uses: uses: JamesIves/github-pages-deploy-action@v4
+       with:
+         folder: public
